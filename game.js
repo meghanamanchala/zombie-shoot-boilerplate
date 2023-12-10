@@ -46,7 +46,7 @@ zombie.style.transform =`translateX(${getRandomInt(10,90)}vw)`;
 zombie.style.animationDuration = `${getRandomInt(4,7)}s`;
 
 zombie.onclick = () =>{
-killedZombie(zombie);
+    killedZombie(zombie);
 }
 
 };
@@ -69,17 +69,18 @@ function killedZombie(zombie){
 // Iteration 5: Creating timer
 function countDown(){
    seconds--;
-   document.getElementById("timer").innerText = seconds;
+   document.getElementById("timer").textContent = seconds;
+
    let zombie =document.getElementById("zombie"+zombieId);
    if(checkIfZombiePassed(zombie)== true){
     if(lives==0){
       clearInterval(timer);
-      location.href = "./game-over.html";
+      window.location.href = "./game-over.html";
     }
    }
    if (seconds == 0){
     clearInterval(timer);
-    location.href="./win.html";
+    window.location.href="./win.html";
    }
 }
 
